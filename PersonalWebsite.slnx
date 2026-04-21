@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="PersonalWebsite/personalwebsite.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
