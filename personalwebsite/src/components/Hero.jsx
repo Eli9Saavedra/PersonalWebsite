@@ -1,4 +1,3 @@
-
 import profilePic from '../assets/hero.png'
 function Hero() {
     return (
@@ -12,6 +11,7 @@ function Hero() {
                         <h1>Elijah Saavedra</h1>
                         <h2><span className="highlight">Full Stack Developer</span></h2>
                         <p>Hello, I'm currently a Software Developer looking for new opportunities.</p>
+                        <a href="#projects" className="cta-button">View My Work</a>
                     </div>
                 </div>
                 <div className="scroll-indicator">
