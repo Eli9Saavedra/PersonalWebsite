@@ -338,7 +338,129 @@
     animation-delay: 1.5s;
 }
 
+/* ==========================================================================
+   Projects Section
+   ========================================================================== */
 
+.projects {
+    padding: 100px 20px;
+    background-color: #003844;
+    background-image: radial-gradient(circle, rgba(159, 193, 49, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    position: relative;
+    background-color: #005C53;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+    .project-card:hover {
+        border-color: #DBF227;
+        box-shadow: 0 0 30px rgba(219, 242, 39, 0.4), 0 10px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+        color: #DBF227;
+        font-size: 1.8em;
+        margin: 0;
+    }
+
+.nda-badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 12px;
+    background-color: #042940;
+    color: #DBF227;
+    border: 1px solid #DBF227;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.project-role {
+    margin: 0;
+    color: #9FC131;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+.project-description {
+    margin: 0;
+    color: #D6D58E;
+    line-height: 1.6;
+}
+
+.project-highlights {
+    margin: 0;
+    padding-left: 20px;
+    color: #D6D58E;
+    line-height: 1.7;
+}
+
+    .project-highlights li {
+        margin-bottom: 4px;
+    }
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tech-item {
+    padding: 6px 14px;
+    background-color: #042940;
+    color: #9FC131;
+    border: 1px solid #9FC131;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.project-links {
+    margin-top: auto;       /* pushes links to bottom of card */
+    padding-top: 12px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+    .project-links a {
+        color: #DBF227;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 2px solid #DBF227;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+        .project-links a:hover {
+            background-color: #DBF227;
+            color: #042940;
+        }
+
+.private-note {
+    color: #9FC131;
+    font-size: 0.9em;
+    font-style: italic;
+}
 
 /* ==========================================================================
    Scroll Indicator
