@@ -1,6 +1,5 @@
 import { useState } from 'react' 
 
-
 function SkillCategory({ title, emoji, skills }) {
 
     const [flipped, setFlipped] = useState(false)

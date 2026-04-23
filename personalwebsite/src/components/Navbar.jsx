@@ -1,22 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 import { FiSun, FiMoon } from 'react-icons/fi' 
 
 
 function Navbar() {
 
+    const { theme, toggleTheme } = useTheme()
     const [isOpen, setIsOpen] = useState(false)
-    const [theme, setTheme] = useState(() => {
-        const saved = localStorage.getItem('theme')
-        if (saved) return saved
-        // fallback: respect OS-level preference if available
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'
-        return 'light'
-    })
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme)
-        localStorage.setItem('theme', theme)
-    }, [theme])
 
     return (
         <nav className="navbar">
@@ -29,7 +19,7 @@ function Navbar() {
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button className="theme-toggle" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label="Toggle theme">{theme === 'light' ? <FiMoon /> : <FiSun />}</button>
+                <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">{theme === 'light' ? <FiMoon /> : <FiSun />}</button>
             </div>
         </nav>
     )
