@@ -1,19 +1,28 @@
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import HomePage from './pages/HomePage'
+import SkillsPage from './pages/SkillsPage'
+import ProjectsPage from './pages/ProjectsPage'
+import ExperiencePage from './pages/ExperiencePage'
+import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
+import ProjectDetailPage from './pages/ProjectDetailPage'
 
 function App() {
     return (
 
         <>
             <Navbar />
-            <Hero />
-            <Skills />
-            <Projects />
-            <Contact />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/skills" element={<SkillsPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
         </>
     )
 }

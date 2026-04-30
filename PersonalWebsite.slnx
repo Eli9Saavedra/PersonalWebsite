@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="PersonalWebsite/personalwebsite.esproj">
+  <Project Path="personalwebsite/personalwebsite.esproj">
     <Build />
     <Deploy />
   </Project>
