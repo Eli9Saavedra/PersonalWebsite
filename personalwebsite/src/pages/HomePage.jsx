@@ -1,7 +1,14 @@
-import Hero from '../components/Hero'; 
+import Hero from '../components/Hero';
+import HomeStats from '../components/HomeStats'
 
 function HomePage() {
-    return <Hero />
+    return (
+        <>
+            <Hero />
+            <HomeStats />
+        </>
+    )
+
 }
 
 export default HomePage
