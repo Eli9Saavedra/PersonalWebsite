@@ -999,7 +999,6 @@ html, body {
         letter-spacing: 0.1em;
     }
 
-
 /* ==========================================================================
    Skills Section
    ========================================================================== */
@@ -1010,23 +1009,94 @@ html, body {
     border-top: 1px solid var(--border);
 }
 
+    .skills .section-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+    }
+
+/* --- Header block --- */
+.skills-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+    .skills-header h2 {
+        margin: 0;
+        font-size: var(--text-4xl);
+        font-weight: var(--font-bold);
+        color: var(--text-primary);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+.skills-hint {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* --- Stats strip --- */
+.skills-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- Card grid --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-6);
 }
 
-/* Outer container — provides the 3D viewing context (perspective)
-   and is the click target. No box styling here; that lives on the faces. */
+/* Outer container — provides 3D context + click target */
 .skill-category {
     position: relative;
     perspective: 1000px;
     cursor: pointer;
+    outline: none;
 }
 
-/* The element that actually rotates. Hover OR .flipped class triggers it.
-   transform-style: preserve-3d keeps the two child faces in 3D space
-   so backface-visibility can hide whichever side is facing away. */
+    .skill-category:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+        border-radius: var(--radius-lg);
+    }
+
+/* Flip affordance icon — sits above both faces, visible on hover */
+.flip-affordance {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 3;
+    color: var(--text-muted);
+    font-size: var(--text-base);
+    opacity: 0.45;
+    pointer-events: none;
+    transition: opacity var(--transition), transform 0.5s ease, color var(--transition);
+}
+
+.skill-category:hover .flip-affordance {
+    opacity: 1;
+    color: var(--accent);
+    transform: rotate(180deg);
+}
+
+.skill-category.flipped .flip-affordance {
+    opacity: 1;
+    color: var(--accent);
+    transform: rotate(360deg);
+}
+
+/* Inner rotates only on .flipped (click-only — no more hover flip) */
 .skill-card-inner {
     display: grid;
     height: 100%;
@@ -1034,13 +1104,11 @@ html, body {
     transform-style: preserve-3d;
 }
 
-.skill-category:hover .skill-card-inner,
 .skill-category.flipped .skill-card-inner {
     transform: rotateY(180deg);
 }
 
-/* Both faces share grid cell (1,1) so the card auto-sizes to the taller face.
-   No fixed heights, no clipping. */
+/* Both faces share grid cell so card auto-sizes to taller face */
 .skill-card-face {
     grid-area: 1 / 1;
     background-color: var(--bg-base);
@@ -1057,7 +1125,7 @@ html, body {
     box-shadow: var(--shadow-md);
 }
 
-/* Pre-rotate the back face so it appears upright when the inner flips 180deg. */
+/* Pre-rotate back face so it appears upright when inner flips 180deg */
 .skill-card-back {
     transform: rotateY(180deg);
 }
@@ -1069,12 +1137,19 @@ html, body {
     margin-bottom: var(--space-6);
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-3);
+}
+
+.skill-category-icon {
+    color: var(--accent);
+    font-size: var(--text-xl);
+    flex-shrink: 0;
 }
 
 .skill-category ul {
     list-style: none;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
@@ -1130,7 +1205,124 @@ html, body {
         font-weight: var(--font-bold);
     }
 
+/* --- Staggered entrance --- */
+.skills .section-container > * {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
 
+.skills .section-container > .skills-header {
+    animation-delay: 0.0s;
+}
+
+.skills .section-container > .skills-stats {
+    animation-delay: 0.1s;
+}
+
+.skills .section-container > .skills-grid {
+    animation-delay: 0.2s;
+}
+
+/* Stagger each card too */
+.skills-grid .skill-category {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+    .skills-grid .skill-category:nth-child(1) {
+        animation-delay: 0.25s;
+    }
+
+    .skills-grid .skill-category:nth-child(2) {
+        animation-delay: 0.35s;
+    }
+
+    .skills-grid .skill-category:nth-child(3) {
+        animation-delay: 0.45s;
+    }
+
+    .skills-grid .skill-category:nth-child(4) {
+        animation-delay: 0.55s;
+    }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .skills {
+        padding: 7rem 1rem 4rem;
+    }
+
+        .skills .section-container {
+            gap: 2rem;
+        }
+
+    .skills-header h2 {
+        font-size: var(--text-3xl);
+    }
+
+    .skills-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skill-card-face {
+        padding: 1.25rem;
+    }
+
+    /* Tighter card header */
+    .skill-category h3 {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    /* Compact pills */
+    .skill-category li {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.8125rem;
+    }
+
+    /* --- KEY FIX: back face uses 2-column grid so its height matches the front face --- */
+    .skill-experience {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        align-content: start;
+    }
+
+        /* h3 spans both columns */
+        .skill-experience > h3 {
+            grid-column: 1 / -1;
+            margin: 0 0 0.25rem;
+            font-size: 0.875rem;
+        }
+
+    .skill-experience-row {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.75rem;
+    }
+
+    /* Always show flip icon on mobile */
+    .flip-affordance {
+        opacity: 0.85;
+        color: var(--accent);
+        top: 0.875rem;
+        right: 0.875rem;
+    }
+}
+
+/* --- Hover effects only on devices with a real pointer (prevents sticky hover on touch) --- */
+@media (hover: none) {
+    .skill-category:hover .skill-card-face {
+        border-color: var(--border);
+        box-shadow: none;
+    }
+
+    .skill-category:hover .flip-affordance {
+        transform: none;
+    }
+}
 /* ==========================================================================
    Projects Section
    ========================================================================== */

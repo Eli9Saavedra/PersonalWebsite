@@ -1,13 +1,14 @@
 ﻿import { SiReact, SiJavascript, SiHtml5, SiCss, SiDotnet, SiNodedotjs, SiPython, SiMongodb } from 'react-icons/si'
-import { FaJava, FaDatabase } from 'react-icons/fa'
+import { FaJava, FaDatabase, FaPalette, FaCogs, FaTools } from 'react-icons/fa'
 import { VscCode, VscAzure, VscGithub } from 'react-icons/vsc'
 import { DiVisualstudio } from 'react-icons/di'     
 import { TbBrandCSharp } from 'react-icons/tb'
+import { HiOutlineDatabase } from 'react-icons/hi'
 
 const skillsData = [
     {
         title: 'Frontend',
-        emoji: '🎨',
+        Icon: FaPalette,
         skills: [
             { name: 'React', icon: SiReact, color: '#61DAFB', years: 1 },
             { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', years: 2 },
@@ -17,7 +18,7 @@ const skillsData = [
     },
     {
         title: 'Backend',
-        emoji: '⚙️',
+        Icon: FaCogs,
         skills: [
             { name: 'C#', icon: TbBrandCSharp, color: '#239120', years: 2 },
             { name: '.NET', icon: SiDotnet, color: '#512BD4', years: 2 },
@@ -28,7 +29,7 @@ const skillsData = [
     },
     {
         title: 'Database',
-        emoji: '🗄️',
+        Icon: HiOutlineDatabase,
         skills: [
             { name: 'SQL Server', icon: FaDatabase, color: '#CC2927', years: 2 },
             { name: 'MongoDB', icon: SiMongodb, color: '#47A248', years: 1 }
@@ -36,7 +37,7 @@ const skillsData = [
     },
     {
         title: 'Tools',
-        emoji: '🛠️',
+        Icon: FaTools,
         skills: [
             { name: 'Git', icon: VscGithub, color: '#F05032', years: 2 },
             { name: 'Visual Studio', icon: DiVisualstudio, color: '#5C2D91', years: 2 },

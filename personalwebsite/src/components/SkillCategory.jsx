@@ -1,15 +1,27 @@
-import { useState } from 'react' 
+import { useState } from 'react'
+import { FaSyncAlt } from 'react-icons/fa'
 
-function SkillCategory({ title, emoji, skills }) {
-
+function SkillCategory({ title, Icon, skills }) {
     const [flipped, setFlipped] = useState(false)
 
     return (
-
-        <div className={`skill-category ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(prev => !prev)}>
+        <div
+            className={`skill-category ${flipped ? 'flipped' : ''}`}
+            onClick={() => setFlipped(prev => !prev)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setFlipped(prev => !prev)
+                }
+            }}
+            aria-label={`${title} skills. Click to ${flipped ? 'see skills' : 'see years of experience'}.`}
+        >
+            <FaSyncAlt className="flip-affordance" aria-hidden="true" />
             <div className="skill-card-inner">
                 <div className="skill-card-face skill-card-front">
-                    <h3>{emoji} {title}</h3>
+                    <h3>{Icon && <Icon className="skill-category-icon" />} {title}</h3>
                     <ul>
                         {skills.map((skill) => (
                             <li key={skill.name}>
