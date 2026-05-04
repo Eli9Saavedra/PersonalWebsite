@@ -8,11 +8,13 @@ import ExperiencePage from './pages/ExperiencePage'
 import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
     return (
 
         <>
+            <ScrollToTop />
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
