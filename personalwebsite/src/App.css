@@ -1817,3 +1817,23 @@ html, body {
     font-size: var(--text-base);
     font-weight: var(--font-medium);
 }
+
+.error-message {
+    text-align: center;
+    margin-top: var(--space-4);
+    color: #ef4444;
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-form input:disabled,
+.contact-form textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
