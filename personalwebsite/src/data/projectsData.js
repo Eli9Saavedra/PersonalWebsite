@@ -28,12 +28,12 @@ const projectsData = [
             'Replaced full legacy HTML/CSS/JS stack with modern .NET'
         ],
         stats: [
-            { value: '151+', label: 'Active users' },
-            { value: '12', label: 'Departments served' },
-            { value: '18mo+', label: 'In production' }
+            { value: 151, suffix: '+', label: 'Active users' },
+            { value: 12, suffix: '', label: 'Departments served', duration: 1200 },
+            { value: 18, suffix: 'mo+', label: 'In production', duration: 1500 }
         ],
         isPrivate: true,
-        repoUrl: 'https://github.com/Eli9Saavedra/EPCAD_Intranet.git',
+        demoUrl: 'https://www.loom.com/embed/a4067bc553c648928749350bb877c629?t=3',
         image: '/projects/epcad-intranet.png', 
         alt: 'Screenshot of the EPCAD Intranet homepage, showing a modern dashboard with company news, quick links, and user profile information.',
         slug: 'epcad-intranet'
@@ -58,8 +58,8 @@ const projectsData = [
             'Built collaboratively with a 2-person dev team'
         ],
         stats: [
-            { value: '3', label: 'Approval stages' },
-            { value: '2', label: 'Departments served' },
+            { value: 3, suffix: '', label: 'Approval stages', duration: 800 },
+            { value: 2, suffix: '', label: 'Departments served', duration: 800 },
             { value: 'Live', label: 'In production' }
         ],
         isPrivate: true,
@@ -87,9 +87,9 @@ const projectsData = [
             'Backend integration with PACS to pull real-time check-in data'
         ],
         stats: [
-            { value: '2', label: 'Live lobby displays' },
-            { value: '4', label: 'Departments served' },
-            { value: '5mo', label: 'Peak season uptime' }
+            { value: 3, suffix: '', label: 'Live lobby displays', duration: 800 },
+            { value: 4, suffix: '', label: 'Departments served', duration: 1000 },
+            { value: 5, suffix: 'mo', label: 'Peak season uptime', duration: 1200 }
         ],
         isPrivate: true,
         image: '/projects/public-hearing-queue.png',
