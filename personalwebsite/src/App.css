@@ -34,6 +34,19 @@
     margin-bottom: var(--space-12);
 }
 
+.section-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.section-link.active {
+    font-weight: bold;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: var(--space-2);
+}
+
 
 /* ==========================================================================
    Navigation Bar
