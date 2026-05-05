@@ -63,7 +63,7 @@ const projectsData = [
             { value: 'Live', label: 'In production' }
         ],
         isPrivate: true,
-        image: '/projects/requisitions-system.png',
+        image: '/projects/Requisitions.png',
         alt: 'Screenshot of the Requisitions Management System',
         slug: 'requisitions'
     },
@@ -92,7 +92,7 @@ const projectsData = [
             { value: 5, suffix: 'mo', label: 'Peak season uptime', duration: 1200 }
         ],
         isPrivate: true,
-        image: '/projects/public-hearing-queue.png',
+        image: '/projects/ARB.png',
         alt: 'Screenshot of the Public Hearing Queue display showing homeowner names and Property IDs.',
         slug: 'public-hearing-queue'
     }
