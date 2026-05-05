@@ -33,7 +33,7 @@ const projectsData = [
             { value: 18, suffix: 'mo+', label: 'In production', duration: 1500 }
         ],
         isPrivate: true,
-        demoUrl: 'https://www.loom.com/embed/a4067bc553c648928749350bb877c629?t=3',
+        videoFile: '/projects/EPCADIntranet.mp4',
         image: '/projects/epcad-intranet.png', 
         alt: 'Screenshot of the EPCAD Intranet homepage, showing a modern dashboard with company news, quick links, and user profile information.',
         slug: 'epcad-intranet'

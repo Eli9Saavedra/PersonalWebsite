@@ -17,13 +17,33 @@ function FeaturedProject() {
         <section className="featured-project">
             <div className="featured-project-inner">
                 <div className='featured-project-media'>
-                    <iframe
-                        className="project-video"
-                        src={project.demoUrl}
-                        title={`${project.title} demo video`}
-                        frameBorder="0"
-                        allowFullScreen
-                    />
+                    {project.videoFile ? (
+                        <video
+                            className="project-video"
+                            src={project.videoFile}
+                            poster={project.image}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            controls
+                            preload="metadata"
+                        />
+                    ) : project.demoUrl ? (
+                        <iframe
+                            className="project-video"
+                            src={project.demoUrl}
+                            title={`${project.title} demo video`}
+                            frameBorder="0"
+                            allowFullScreen
+                        />
+                    ) : (
+                        <img
+                            className="project-image"
+                            src={project.image}
+                            alt={project.alt}
+                        />
+                    )}
                 </div>
                 <div className="featured-project-content">
                     <span className="featured-label">Featured Case Study</span>

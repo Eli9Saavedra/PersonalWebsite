@@ -20,7 +20,19 @@ function ProjectDetailPage() {
                 <span>Back to Projects</span>
             </Link>
             <div className="project-hero">
-                {project.demoUrl ? (
+                {project.videoFile ? (
+                    <video
+                        className="project-video"
+                        src={project.videoFile}
+                        poster={project.image}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls
+                        preload="metadata"
+                    />
+                ) : project.demoUrl ? (
                     <iframe
                         className="project-video"
                         src={project.demoUrl}
