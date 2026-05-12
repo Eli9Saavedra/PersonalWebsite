@@ -6,6 +6,7 @@ import SkillsPage from './pages/SkillsPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ExperiencePage from './pages/ExperiencePage'
 import ContactPage from './pages/ContactPage'
+import ResumePage from './pages/ResumePage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import ScrollToTop from './components/ScrollToTop'
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/projects/:slug" element={<ProjectDetailPage />} />
                 <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/resume" element={<ResumePage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>

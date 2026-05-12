@@ -19,6 +19,7 @@ function Navbar() {
                     <li><NavLink to="/" end onClick={closeMenu}>Home</NavLink></li>
                     <li><NavLink to="/skills" onClick={closeMenu}>Skills</NavLink></li>
                     <li><NavLink to="/experience" onClick={closeMenu}>Experience</NavLink></li>
+                    <li><NavLink to="/resume" onClick={closeMenu}>Resume</NavLink></li>
                     <li><NavLink to="/projects" onClick={closeMenu}>Projects</NavLink></li>
                     <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
                 </ul>
