@@ -98,6 +98,7 @@ html, body {
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .nav-container {
@@ -137,6 +138,8 @@ html, body {
     display: flex;
     gap: var(--space-8);
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
     .nav-links a {
@@ -168,45 +171,51 @@ html, body {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        justify-self: start;
     }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-        background-color: var(--bg-surface);
-        border-bottom: 1px solid var(--border);
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--transition);
-    }
-
-        .nav-links.open {
-            max-height: 300px;
-        }
-
-        .nav-links li {
-            padding: var(--space-4) var(--space-6);
-            border-top: 1px solid var(--border);
-        }
 
     .nav-logo {
         display: none;
     }
 
     .nav-container {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: auto 1fr auto;
+        gap: var(--space-2);
     }
 
-    .hamburger {
-        justify-self: start;
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        background-color: var(--bg-surface);
+        border-bottom: 1px solid var(--border);
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: max-height var(--transition);
+        z-index: 1001;
     }
+
+        .nav-links.open {
+            max-height: calc(100vh - var(--nav-offset));
+        }
+
+        .nav-links li {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-links a {
+            display: block;
+            width: 100%;
+        }
 }
-
 
 /* ==========================================================================
    Hero Section
